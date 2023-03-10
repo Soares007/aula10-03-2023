@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Calculadora</title>
 </head>
-<body style="background-color: skyblue;">
+<header>
     <h1>Calculadora</h1>
     <form>
-        <input type="text"  id="num1"></input>
-        <input type="text"  id="num2"></input>
-        <button type="button" onclick="somar()">Somar</button>
-        <input id="soma" type="text" disabled></input>
+        <input type="text"  class="num1" id="num1"></input>
+        <input type="text"  class="num2" id="num2"></input>
+        <div class="buttons">
+        <button type="button" class="buttonPlus" onclick="somar()"><span class="gg-add-r"></span></button>
+        <button type="button" class="buttonSub" onclick="subtrair()"><span class="gg-remove-r"></span></button>
+        <button type="button" class="buttonMult" onclick="multiplicar()"><span class="gg-close-r"></span></button>
+        <button type="button" class="buttonDiv" onclick="divisao()">/</button>
+    </div>
+    
+        <input id="result" type="text" disabled></input>
+        
+        <button type="reset" class="buttonReset"><span class="gg-erase"></span></button>
     </form>
-
+</header>
     <script>
         function somar(){ 
              var num1, num2, soma;
@@ -24,9 +34,48 @@
 
              soma = num1 + num2;
 
-             document.getElementById("soma").value = soma;
+             document.getElementById("result").value = soma;
 
         }
     </script>   
+
+    <script>
+        function subtrair(){
+            var num1, num2, subtrair;
+
+            num1 = parseFloat(document.getElementById("num1").value);
+            num2 = parseFloat(document.getElementById("num2").value);
+
+            subtrair = num1 - num2;
+
+            document.getElementById("result").value = subtrair;
+        }
+    </script>
+
+    <script>
+        function multiplicar(){
+            var num1, num2, multiplicar;
+
+            num1 = parseFloat(document.getElementById("num1").value);
+            num2 = parseFloat(document.getElementById("num2").value);
+
+            multiplicar = num1 * num2;
+
+            document.getElementById("result").value = multiplicar;
+        }
+    </script>
+
+<script>
+    function divisao(){
+        var num1, num2, divisao;
+
+        num1 = parseFloat(document.getElementById("num1").value);
+        num2 = parseFloat(document.getElementById("num2").value);
+
+        divisao = num1 / num2;
+
+        document.getElementById("result").value = divisao;
+    }
+</script>
 </body>
 </html>
