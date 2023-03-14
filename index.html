@@ -1,81 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Calculadora</title>
 </head>
+<body>
 <header>
     <h1>Calculadora</h1>
     <form>
-        <input type="text"  class="num1" id="num1"></input>
-        <input type="text"  class="num2" id="num2"></input>
+        <input type="number" class="num1" id="num1" placeholder="Insira o primeiro valor"></input>
+        <input type="number" class="num2" id="num2" placeholder="Insira o segundo valor"></input>
         <div class="buttons">
-        <button type="button" class="buttonPlus" onclick="somar()"><span class="gg-add-r"></span></button>
-        <button type="button" class="buttonSub" onclick="subtrair()"><span class="gg-remove-r"></span></button>
-        <button type="button" class="buttonMult" onclick="multiplicar()"><span class="gg-close-r"></span></button>
-        <button type="button" class="buttonDiv" onclick="divisao()"><span class="gg-view-split"></span></button>
-    </div>
-    
-        <input id="result" type="text" disabled></input>
-        
-        <button type="reset" class="buttonReset"><span class="gg-erase"></span></button>
+            <button type="button" id="soma" class="buttonPlus" onclick="operacao('+')">+</button>
+            <button type="button" id="sub" class="buttonSub" onclick="operacao('-')">-</button>
+            <button type="button" id="mult" class="buttonMult" onclick="operacao('*')">×</button>
+            <button type="button" id="div" class="buttonDiv" onclick="operacao('/')">÷</button>
+        </div>
+
+        <input id="result" type="number" disabled placeholder="Resultado"></input>
+
+        <button type="reset" class="buttonReset"><span class="gg-trash"></span></button>
     </form>
 </header>
-    <script>
-        function somar(){ 
-             var num1, num2, soma;
-
-             num1 = parseFloat(document.getElementById("num1").value);
-             num2 = parseFloat(document.getElementById("num2").value);
-
-             soma = num1 + num2;
-
-             document.getElementById("result").value = soma;
-
-        }
-    </script>   
-
-    <script>
-        function subtrair(){
-            var num1, num2, subtrair;
-
-            num1 = parseFloat(document.getElementById("num1").value);
-            num2 = parseFloat(document.getElementById("num2").value);
-
-            subtrair = num1 - num2;
-
-            document.getElementById("result").value = subtrair;
-        }
-    </script>
-
-    <script>
-        function multiplicar(){
-            var num1, num2, multiplicar;
-
-            num1 = parseFloat(document.getElementById("num1").value);
-            num2 = parseFloat(document.getElementById("num2").value);
-
-            multiplicar = num1 * num2;
-
-            document.getElementById("result").value = multiplicar;
-        }
-    </script>
 
 <script>
-    function divisao(){
-        var num1, num2, divisao;
+    function operacao(op) {
+        var num1, num2, soma, sub, mult, div, result, resultado;
 
         num1 = parseFloat(document.getElementById("num1").value);
         num2 = parseFloat(document.getElementById("num2").value);
 
-        divisao = num1 / num2;
+        if (op == '+') {
+            soma = num1 + num2;
+            resultado = soma;
+        }
 
-        document.getElementById("result").value = divisao;
+        if (op == '-') {
+            sub = num1 - num2;
+            resultado = sub;
+        }
+
+        if (op == '*') {
+            mult = num1 * num2;
+            resultado = mult;
+        }
+
+        if (op == '/') {
+            div = num1 / num2;
+            resultado = div;
+        }
+
+        document.getElementById("result").value = resultado;
+
+
     }
 </script>
 </body>
+
 </html>
